@@ -122,10 +122,38 @@ body{font-family:var(--body);background:var(--offwhite);color:var(--dark);min-he
   .pdf-page{transform:scale(0.9);transform-origin:top center}
 }
 @media print{
+  @page{size:A4 portrait;margin:0}
+  html,body{width:210mm;height:auto;background:white;overflow:visible}
   .form-panel,.preview-toolbar,.actions{display:none !important}
-  .preview-panel{padding:0;background:white}
-  .pdf-page{box-shadow:none;width:210mm;margin:0;transform:none !important}
-  body{background:white}
+  .app{display:block !important}
+  .preview-panel{padding:0;background:white;overflow:visible;min-height:unset}
+  .pdf-page{
+    box-shadow:none;
+    width:210mm;
+    min-height:auto;
+    margin:0;
+    padding-bottom:0;
+    transform:none !important;
+    page-break-after:auto;
+    overflow:visible;
+  }
+  .p-header,.p-addresses,.p-bottom,.p-footer,.p-eoae{
+    page-break-inside:avoid;
+    overflow:visible;
+  }
+  .p-items{
+    overflow:visible;
+  }
+  .p-tbl{
+    page-break-inside:auto;
+  }
+  .p-tbl thead{
+    display:table-header-group;
+  }
+  .p-tbl tr{
+    page-break-inside:avoid;
+    page-break-after:auto;
+  }
 }
 </style>
 </head>
