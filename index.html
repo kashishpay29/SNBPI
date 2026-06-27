@@ -66,7 +66,7 @@ body{font-family:var(--body);background:var(--offwhite);color:var(--dark);min-he
 .p-company{padding:8px 12px;text-align:center}
 .p-company h1{font-family:var(--display);font-size:26px;font-weight:800;color:var(--red);letter-spacing:0.06em;line-height:1}
 .p-company p{font-size:9px;color:var(--dark);line-height:1.6;margin-top:4px}
-.p-copies{border-left:1px solid var(--dark);padding:8px 12px;min-width:220px}
+.p-copies{padding:8px 12px;min-width:220px}
 .p-copy-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:9px;color:var(--dark)}
 .p-copy-dot{width:11px;height:11px;border:1.5px solid var(--dark);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:7px;color:var(--red);flex-shrink:0}
 .p-title-row{border-bottom:1.5px solid var(--dark);display:flex;justify-content:space-between;align-items:center;padding:5px 12px}
@@ -114,7 +114,7 @@ body{font-family:var(--body);background:var(--offwhite);color:var(--dark);min-he
 .p-footer-left{border-right:1px solid var(--dark);padding:8px 10px;font-size:8.5px;color:var(--gray);line-height:1.6}
 .p-footer-right{padding:8px 10px;text-align:right}
 .p-footer-right p{font-size:10px;font-weight:700;color:var(--dark)}
-.p-sig{margin-top:28px;border-top:1px solid var(--dark);padding-top:4px;font-size:8.5px;color:var(--gray)}
+.p-sig{margin-top:55px;border-top:1px solid var(--dark);padding-top:4px;font-size:8.5px;color:var(--gray)}
 .p-eoae{margin:4px 8px;font-size:8.5px;color:var(--gray);font-style:italic}
 
 @media(max-width:1300px){
@@ -229,7 +229,10 @@ body{font-family:var(--body);background:var(--offwhite);color:var(--dark);min-he
         <div class="field"><label>PO Date</label><input id="poDate" type="date" oninput="render()"></div>
         <div class="field"><label>Vendor Code</label><input id="vendorCode" oninput="render()"></div>
       </div>
-      <div class="field-row single"><div class="field"><label>Kind Attention / Job Done At</label><input id="kindAttn" oninput="render()"></div></div>
+      <div class="field-row">
+        <div class="field"><label>Kind Attention</label><input id="kindAttn" oninput="render()"></div>
+        <div class="field"><label>Job Done At</label><input id="jobDoneAt" oninput="render()"></div>
+      </div>
     </div>
 
     <div class="form-section">
@@ -467,8 +470,9 @@ function render(){
       <div><strong>PO Date:</strong> ${g('poDate')?fmtDate(g('poDate')):'—'}</div>
       <div><strong>Vendor Code:</strong> ${g('vendorCode')||'—'}</div>
     </div>
-    <div style="margin:0 8px;border:1.5px solid var(--dark);border-top:none;padding:3px 12px;font-size:9px">
-      <strong>Kind Attn / Job Done At:</strong> ${g('kindAttn')||'—'}
+    <div class="p-po-row" style="margin:0 8px;border:1.5px solid var(--dark);border-top:none;grid-template-columns:1fr 1fr">
+      <div><strong>Kind Attention:</strong> ${g('kindAttn')||'—'}</div>
+      <div><strong>Job Done At:</strong> ${g('jobDoneAt')||'—'}</div>
     </div>
 
     <!-- ITEMS TABLE -->
